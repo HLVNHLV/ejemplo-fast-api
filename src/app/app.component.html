@@ -1,0 +1,112 @@
+<div id="content">
+  <h1>PASSWD</h1>
+  <h2>Gestión de contraseñas</h2>
+  
+  <p-table
+    [value]="Servicios"
+    [paginator]="true"
+    [rows]="7"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Icono</th>
+        <th>Servicio</th>
+        <th>Usuario</th>
+        <th>Contraseña</th>
+        <th>URL</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-c>
+      <tr>
+        <td><img src="{{c.icon}}" alt=""></td>
+        <td>{{c.servicio}}</td>
+        <td>{{c.usuario}}</td>
+        <td>{{c.contrasena}}</td>
+        <td><a href="{{c.url}}">{{c.url}}</a></td>
+        <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            title="Modifica Servicio"
+            (click)="editaServicio(c)"
+            class="p-button-raised p-button-rounded">
+          </button>
+        </td>
+        <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            title="Modifica Servicio"
+            (click)="borraServicio(c._id)"
+            class="p-button-raised p-button-rounded">
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- Botón para añadir Servicio -->
+
+  <div id="add-button">
+    <p-speedDial (click)="muestraFormulario = !muestraFormulario"></p-speedDial>
+  </div>
+  
+  <!-- Ventana emergente para añadir y editar Servicio -->
+
+  <p-dialog
+    header="Servicio"
+    [(visible)]="muestraFormulario"
+    [style]="{width: '32vw'}">
+
+    <form [formGroup]="formularioServicio" (ngSubmit)="submitServicio()">
+
+      <div id="form-fields">
+        <div class="field-wrap">
+          <label for="servicio">Servicio:</label>
+          <input id="servicio" type="text" formControlName="servicio">
+        </div>
+          
+        <div class="field-wrap">
+          <label for="usuario">Usuario:</label>
+          <input id="usuario" type="text" formControlName="usuario">
+        </div>
+
+        <div class="field-wrap">
+          <label for="contrasena">Contraseña:</label>
+          <input id="contrasena" type="text" formControlName="contrasena">
+        </div>
+
+        <div class="field-wrap">
+          <label for="url">URL:</label>
+          <input id="url" type="text" formControlName="url">
+        </div>
+
+        <div class="field-wrap">
+          <label for="icon">Icono:</label>
+          <input id="icon" type="text" formControlName="icon">
+        </div>
+      </div>
+     
+    <p-footer>
+        <p-button
+          type="submit"
+          label="Aceptar"
+          styleClass="p-button-success">
+
+        </p-button>
+        &nbsp;&nbsp;
+        <p-button
+          label="Cancelar"
+          styleClass="p-button-danger"
+          (click)="muestraFormulario = false">
+        </p-button>
+    </p-footer>
+  </form>
+  </p-dialog>
+  
+
+</div>

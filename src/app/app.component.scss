@@ -1,0 +1,61 @@
+#content {
+  text-align: center;
+}
+
+th,
+td {
+  text-align: center !important;
+}
+
+h1,
+h2 {
+  color: var(--orange-500);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button { //No sé como cambiarle el color a los botones, así que...
+  color: var(--orange-500);
+} //Esto no hace nada btw
+
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+#add-button {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+
+#form-fields {
+  text-align: left;
+  padding: 2em;
+}
+
+.field-wrap {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.field-wrap input {
+  width: 100%;
+  flex-grow: 1;
+  margin-bottom: 1em;
+}
+
+.field-wrap label {
+  margin-right: 0.5em;
+}
+
+img {
+  height: 80px;
+  margin: 0%;
+}
+td {
+  width: 10%;
+}
