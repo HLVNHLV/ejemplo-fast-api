@@ -20,17 +20,17 @@
     </ng-template>
     <ng-template pTemplate="body" let-c>
       <tr>
-        <td><img src="{{c.icon}}" alt=""></td>
+        <td><img src="{{c.icon}}" alt=""></td> <!-- añado {{c.icon}} adentro de el img, así con un enlace a una imagen puedo añadir miniaturas -->
         <td>{{c.servicio}}</td>
         <td>{{c.usuario}}</td>
-        <td>{{c.contrasena}}</td>
-        <td><a href="{{c.url}}">{{c.url}}</a></td>
+        <td>{{c.contrasena}}</td> 
+        <td><a href="{{c.url}}">{{c.url}}</a></td> <!-- Botón para añadir Servicio --> <!-- Lo mismo pero para las URLs-->
         <td>
           <button
             pButton
             type="button"
             icon="pi pi-pencil"
-            title="Modifica Servicio"
+            title="Modificar servicio"
             (click)="editaServicio(c)"
             class="p-button-raised p-button-rounded">
           </button>
@@ -40,7 +40,7 @@
             pButton
             type="button"
             icon="pi pi-trash"
-            title="Modifica Servicio"
+            title="Borrar servicio"
             (click)="borraServicio(c._id)"
             class="p-button-raised p-button-rounded">
           </button>
@@ -58,7 +58,7 @@
   <!-- Ventana emergente para añadir y editar Servicio -->
 
   <p-dialog
-    header="Servicio"
+    header="Añadir / editar servicio"
     [(visible)]="muestraFormulario"
     [style]="{width: '32vw'}">
 
